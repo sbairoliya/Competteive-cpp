@@ -21,6 +21,8 @@ typedef long long ll;
 
 /************************************* SOLUTION BELOW ***************************************/
 void solve() {
+    vector<pair<ll, ll>> robbers;
+    vector<pair<ll, ll>> lights;
 
 }
 
