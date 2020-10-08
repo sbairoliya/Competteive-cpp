@@ -1,0 +1,3 @@
+Case #1: 16128214
+Case #2: 6618368
+Time taken for execution: 0 ms
