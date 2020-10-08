@@ -20,9 +20,45 @@ typedef long long ll;
 #define readNumbersArray1(n, arr) for(int i = 0; i < n; i++){cin>>arr[i + 1];}
 
 /************************************* SOLUTION BELOW ***************************************/
+bool comparePairs(pair<ll, ll> a, pair<ll, ll> b) {
+    if (a.first == b.first) {
+        return a.second >= b.second;
+    }
+    return a.first > b.first;
+}
+
 void solve() {
     vector<pair<ll, ll>> robbers;
     vector<pair<ll, ll>> lights;
+    ll n, m, x, y;
+    cin >> n >> m;
+    for (int i = 0; i < n; ++i) {
+        cin >> x >> y;
+        robbers.emplace_back(x, y);
+    }
+    for (int i = 0; i < m; ++i) {
+        cin >> x >> y;
+        lights.emplace_back(x, y);
+    }
+    vector<ll> xCoordintes(10e6 + 2, -1);
+
+    for (auto light: lights) {
+        for (auto robber :robbers) {
+            ll xMov = light.first - robber.first;
+            ll yMov = light.second - robber.second;
+            if (xMov >= 0 && yMov >= 0) {
+                xCoordintes[xMov] = max(xCoordintes[xMov], yMov);
+            }
+        }
+    }
+    ll maxY = -1;
+    ll ans = INT_MAX;
+    for (int i = 10e6 + 1; i >= 0; --i) {
+        maxY = max(maxY, xCoordintes[i]);
+        ans = min(ans, maxY + i + 1);
+    }
+    ans = min(ans, maxY + 1);
+    cout << ans << endl;
 
 }
 
@@ -35,7 +71,7 @@ int32_t main() {
     auto start = high_resolution_clock::now();
 #endif
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while (t--) {
         solve();
     }

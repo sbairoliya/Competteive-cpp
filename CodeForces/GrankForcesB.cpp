@@ -63,7 +63,6 @@ int32_t main() {
     auto start = high_resolution_clock::now();
 #endif
     int t = 1;
-    cin >> t;
     while (t--) {
         solve();
     }
