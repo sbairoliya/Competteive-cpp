@@ -1,3 +1,5 @@
 # Project exclude paths
 /cmake-build-debug/
 /Kattis/
+output-DESKTOP-TJUJ2TJ-2.txt
+output.txt
