@@ -1,63 +1,26 @@
 /*
- * Developed By : Shivam Bairoliya
- */
+* Developed By: Shivam Bairoliya
+* Created On: 10/9/2020 on 4:17 PM
+*/
 
-#include <iostream>
-#include<algorithm>
-#include<unordered_map>
-#include<vector>
-#include<unordered_set>
-#include<set>
-#include<map>
-#include<queue>
-#include<stack>
-#include<chrono>
+#include <bits/stdc++.h>
 
+#define ll long long
 
 using namespace std;
-using namespace chrono;
 
-typedef unsigned long long ull;
-typedef long double lld;
-typedef long long ll;
+ll arrayBharat[1001];
+ll arrayShivam[1001];
 
-
-#define vi vector<int>
-#define vl vector<long long>
-#define MOD 1000000007
-#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-#define max(a, b) ((a)>(b)?(a):(b))
-#define min(a, b) ((a)<(b)?(a):(b))
-#define readNumbersArray(n, arr) for(int i = 0; i < n; i++){cin>>arr[i];}
-#define readNumbersArray1(n, arr) for(int i = 0; i < n; i++){cin>>arr[i + 1];}
-#define modSum(a, b) (((a%MOD)+(b%MOD))%MOD)
-#define modMultiply(a, b) (((a%MOD)*(b%MOD))%MOD)
-
-/************************************* SOLUTION BELOW ***************************************/
-void solve() {
-    for (int i = 0; i < 100000; ++i) {
-        cout<<(i + 1)<<" ";
+int main() {
+    arrayBharat[3] = 1;
+    arrayShivam[3] = 1;
+    for (int i = 4; i <= 100; ++i) {
+        arrayShivam[i] = ((ll)(pow(2, i - 2)) * (i - 2)) - (ll)(pow(2, i - 3));
+        arrayBharat[i] = (2 * arrayBharat[i - 1]) + (ll)(pow(2, i - 2));
     }
-    cout<<endl;
-}
-
-int32_t main() {
-    fastio();
-#ifndef ONLINE_JUDGE
-    freopen("../input.txt", "r", stdin);
-    freopen("../tempInput.txt", "w", stdout);
-    freopen("../error.txt","w",stderr);
-    auto start = high_resolution_clock::now();
-#endif
-    int t = 1;
-    //cin >> t;
-    while (t--) {
-        solve();
+    cout << "i\tShivam\t\tBharat" << endl;
+    for (int i = 3; i <= 100; ++i) {
+        cout << i << "\t" << arrayShivam[i] << "\t" << arrayBharat[i] << endl;
     }
-#ifndef ONLINE_JUDGE
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<milliseconds>(stop - start);
-  //  cout << "Time taken for execution: "
-  //       << duration.count() << " ms" << endl;
-#endif
 }
