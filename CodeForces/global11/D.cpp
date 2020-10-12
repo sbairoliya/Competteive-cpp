@@ -23,13 +23,14 @@ typedef long long ll;
 /************************************* SOLUTION BELOW ***************************************/
 ll n;
 vl arrayT;
+
 void operate(vl operations) {
     vl tempArray(n + 1, 0);
     for (int i = 1; i <= n; ++i) {
         tempArray[i] = arrayT[i];
     }
     ll curr = n;
-    ll index = 0;
+    ll index = 1;
     while (!operations.empty()) {
         ll operation = operations.back();
         operations.pop_back();
@@ -45,72 +46,68 @@ void solve() {
     arrayT.resize(n + 1, 0);
     read1(arrayT, n);
     vector<vl > allOperations;
-    ll temp = n;
-    if (n % 2 == 0)
-        temp--;
-    for (int i = 1; i <= temp; ++i) {
-        vl currentOperation;
-        vl tempOperation;
-        if (i % 2 == 0) {
-            int j = 1;
-            for (; j < i; ++j) {
-                currentOperation.push_back(1);
-                tempOperation.push_back(1);
-            }
-            int k = j;
-            for (; k <= n; k++) {
-                if (arrayT[k] == i) {
-                    break;
-                }
-            }
-            if (k - j > 0) {
-                currentOperation.push_back(k - j);
-                tempOperation.push_back(k - j);
-            }
-            if (n - k > 0) {
-                currentOperation.push_back(n - k);
-                tempOperation.push_back(n - k);
-            }
-            operate(tempOperation);
-        } else {
-            int k = 1;
-            for (; k <= n - i + 1; ++k) {
-                if (arrayT[k] == i) {
-                    break;
-                }
-            }
-            if (k - 1 > 0) {
-                currentOperation.push_back(k - 1);
-                tempOperation.push_back(k - 1);
-            }
-            if (n - i + 1 - k + 1 > 0) {
-                currentOperation.push_back(n - i + 1 - k + 1);
-                tempOperation.push_back(n - i + 1 - k + 1);
-            }
+    // If even start from right
+    bool right = (n % 2 == 1);
+    for (int i = 1; i <= n; ++i, right = !right) {
+        vl currOperate;
+        if (!right) {
             for (int j = 1; j < i; ++j) {
-                tempOperation.push_back(1);
-                currentOperation.push_back(1);
+                currOperate.push_back(1);
             }
-            operate( tempOperation);
+            ll count = 1;
+            for (int j = i; j < n; ++j) {
+                if (arrayT[j] != i) {
+                    count++;
+                } else {
+                    break;
+                }
+            }
+            currOperate.push_back(count);
+            if (n - count - i + 1 != 0) {
+                currOperate.push_back(n - count - i + 1);
+            }
+            if (currOperate.size() >= 2) {
+                allOperations.push_back(currOperate);
+                operate(currOperate);
+            }
+        } else {
+            for (int j = 1; j < i; ++j) {
+                currOperate.push_back(1);
+            }
+            ll count = 1;
+            for (int j = (int)n - i + 1; j >= 1; --j) {
+                if (arrayT[j] != i) {
+                    count++;
+                } else {
+                    break;
+                }
+            }
+            currOperate.push_back(count);
+            if (n - count - i + 1 != 0) {
+                currOperate.push_back(n - count - i + 1);
+            }
+            if (currOperate.size() >= 2) {
+                reverse(currOperate.begin(), currOperate.end());
+                allOperations.push_back(currOperate);
+                operate(currOperate);
+            }
         }
-        if (currentOperation.size() >= 2)
-            allOperations.push_back(currentOperation);
     }
-    if (n % 2 == 0) {
-        vl operatfsaf;
-        for (int i = 1; i <= n; ++i) {
-            operatfsaf.push_back(1);
-        }
-        allOperations.push_back(operatfsaf);
-    }
-    cout << allOperations.size() << endl;
-    for (vl operation : allOperations) {
+    cout <<allOperations.size() << endl;
+    for (vl operation: allOperations) {
         cout << operation.size() << " ";
-        for (ll i: operation) {
-            cout << i << " ";
+        for (ll op: operation) {
+            cout << op << " ";
         }
         cout << endl;
     }
+#ifndef ONLINE_JUDGE
+    cout << endl;
+    for (ll x: arrayT) {
+        cout << x << " ";
+    }
+    cout << endl;
+#endif
 }
 
 int32_t main() {
