@@ -3,10 +3,11 @@ project(CLion)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(currA CodeForces/global11/A.cpp)
-add_executable(currB CodeForces/global11/B.cpp)
-add_executable(currC CodeForces/global11/C.cpp)
-add_executable(currD CodeForces/global11/D.cpp)
+add_executable(currA CodeForces/Raif_1/A.cpp)
+add_executable(currB CodeForces/Raif_1/B.cpp)
+add_executable(currC CodeForces/Raif_1/C.cpp)
+add_executable(currD CodeForces/Raif_1/D.cpp)
+
 
 
 

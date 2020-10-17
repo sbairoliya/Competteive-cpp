@@ -12,15 +12,12 @@ typedef long long ll;
 #define MOD 1000000007
 
 
-/*
- *
- */
 /**
  * This is a pair comparator which compares by the first element
  * and then by the second element
  * @param a - the first pair
  * @param b - the second pair
- * @return
+ * @return bool
  */
 bool comparePairs(pair<ll, ll> a, pair<ll, ll> b) {
     if (a.first == b.first) {
@@ -33,7 +30,7 @@ bool comparePairs(pair<ll, ll> a, pair<ll, ll> b) {
  * and then by the second element
  * @param a - the first pair
  * @param b - the second pair
- * @return
+ * @return bool
  */
 bool comparePairsSecond(pair<ll, ll> a, pair<ll, ll> b) {
     if (a.second == b.second) {
@@ -41,3 +38,5 @@ bool comparePairsSecond(pair<ll, ll> a, pair<ll, ll> b) {
     }
     return a.second > b.second;
 }
+
+
