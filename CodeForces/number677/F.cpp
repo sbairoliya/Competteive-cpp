@@ -1,6 +1,6 @@
 /*
  * Developed By : Shivam Bairoliya
- * Created on   : 10/17/2020 at 10:43 PM
+ * Created on   : 10/20/2020 at 8:53 PM(UTC +5.5)
  */
 
 #include <bits/stdc++.h>
@@ -17,39 +17,22 @@ typedef long long ll;
 #define pll pair<long long, long long>
 #define MOD 1000000007
 #define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-#define read(arr, n) for(int i = 0; i < n; i++) cin>>arr[i]
-#define read1(arr, n) for(int i = 1;i <= n; i++) cin>>arr[i]
+#define read(arr, n) for(int i = 0; i < n; i++) cin>>arr[i];
+#define read1(arr, n) for(int i = 1;i <= n; i++) cin>>arr[i];
 
 /************************************* SOLUTION BELOW ***************************************/
 
 void solve() {
-    ll n, k;
-    cin >> n >> k;
-    ll array[n];
-    read(array, n);
-    priority_queue<ll> pq;
+    ll n, m, k;
+    cin >> n >> m >> k;
+    ll array[n + 1][m + 1];
     for (ll i = 0; i < n; ++i) {
-        pq.push(array[i]);
-    }
-    while (pq.size() != k) {
-        ll x = pq.top();
-        pq.pop();
-        ll one = x / 2;
-        ll two;
-        if (x % 2 == 1) {
-            two = one + 1;
-        } else {
-            two = one;
+        for (ll j = 0; j < m; ++j) {
+            cin >> array[i][j];
         }
-        pq.push(one);
-        pq.push(two);
     }
-    ll sum = 0;
-    while (!pq.empty()) {
-        sum += (pq.top() * pq.top());
-        pq.pop();
-    }
-    cout << sum << endl;
+    ll mBy2 = m / 2;
+
 }
 
 int32_t main() {
@@ -61,7 +44,7 @@ int32_t main() {
     auto start = high_resolution_clock::now();
 #endif
     int t = 1;
-    //cin >> t;
+    cin >> t;
     while (t--) {
         solve();
     }
