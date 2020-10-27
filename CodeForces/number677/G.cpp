@@ -23,7 +23,7 @@ typedef long long ll;
 /************************************* SOLUTION BELOW ***************************************/
 
 int *array;
-hashmap
+
 
 struct AdjListNode {
     int dest;

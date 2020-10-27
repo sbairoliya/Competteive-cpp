@@ -25,13 +25,32 @@ typedef long long ll;
 void solve() {
     ll n, m, k;
     cin >> n >> m >> k;
-    ll array[n + 1][m + 1];
+    ll array[n][m];
     for (ll i = 0; i < n; ++i) {
         for (ll j = 0; j < m; ++j) {
             cin >> array[i][j];
         }
     }
-    ll mBy2 = m / 2;
+    ll dp[70][70][70][36];
+    for (ll i = 0; i < 70; ++i) {
+        for (ll j = 0; j < 70; ++j) {
+            for (ll l = 0; l < 70; ++l) {
+                for (ll i1 = 0; i1 < 36; ++i1) {
+                    dp[i][j][l][i1] = -1;
+                }
+            }
+        }
+    }
+    dp[0][0][0][0] = 0;
+    for (ll i = 0; i < n; ++i) {
+        for (ll j = 0; j < m; ++j) {
+            for (ll l = 0; l < k; ++l) {
+                for (ll i1 = 0; i1 < m / 2 + 1; ++i1) {
+
+                }
+            }
+        }
+    }
 
 }
 

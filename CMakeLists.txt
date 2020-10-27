@@ -10,4 +10,10 @@ add_executable(currD CodeForces/number677/D.cpp)
 add_executable(currE CodeForces/number677/E.cpp)
 add_executable(currF CodeForces/number677/F.cpp)
 add_executable(currG CodeForces/number677/G.cpp)
-add_executable(temp temp.cpp)
+add_executable(first first.cpp)
+add_executable(second second.cpp)
+add_executable(third third.cpp)
+add_executable(fourth  fourth.cpp)
+add_executable(fifth fifth.cpp)
+
+
