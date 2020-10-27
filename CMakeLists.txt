@@ -3,17 +3,9 @@ project(CLion)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(currA CodeForces/number677/A.cpp)
-add_executable(currB CodeForces/number677/B.cpp)
-add_executable(currC CodeForces/number677/C.cpp)
-add_executable(currD CodeForces/number677/D.cpp)
-add_executable(currE CodeForces/number677/E.cpp)
-add_executable(currF CodeForces/number677/F.cpp)
-add_executable(currG CodeForces/number677/G.cpp)
-add_executable(first first.cpp)
-add_executable(second second.cpp)
-add_executable(third third.cpp)
-add_executable(fourth  fourth.cpp)
-add_executable(fifth fifth.cpp)
-
+add_executable(currA CodeForces/educational97/A.cpp)
+add_executable(currB CodeForces/educational97/B.cpp)
+add_executable(currC CodeForces/educational97/C.cpp)
+add_executable(currD CodeForces/educational97/D.cpp)
+add_executable(currE CodeForces/educational97/E.cpp)
 
