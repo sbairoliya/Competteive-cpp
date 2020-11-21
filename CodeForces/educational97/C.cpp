@@ -27,39 +27,23 @@ void solve() {
     ll n;
     cin >> n;
     vector<ll> tim(n);
-    map<ll, ll> m;
     for (ll i = 0; i < n; i++) {
         cin >> tim[i];
-        m[tim[i]]++;
     }
-    ll ans = 0;
-    vector<bool> check(n + 1);
-    for (auto x:m) {
-        for (ll i = 0; i < x.second; i++) {
-            int found = 0;
-            ll forward = x.first + 1, backward = x.first - 1, mid = x.first;
-            while (!found) {
-                if (!check[mid]) {
-                    check[mid] = true;
-                    ans += (abs(x.first - mid));
-                    found = 1;
-                    continue;
-                } else if (backward > 0 && !check[backward]) {
-                    check[backward] = true;
-                    ans += (abs(x.first - backward));
-                    found = 1;
-                    continue;
-                } else if (!check[forward]) {
-                    check[forward] = true;
-                    ans += (abs(x.first - forward));
-                    found = 1;
+    sort(tim.begin(), tim.end());
+    vector<vl > dp(n + 1, vl(2 * n, MOD));
+    dp[0][0] = 0;
+    for (ll i = 0; i < n + 1; ++i) {
+        for (ll j = 0; j < 2 * n - 1; ++j) {
+            if (dp[i][j] < MOD) {
+                if (i != n) {
+                    dp[i + 1][j + 1] = min(dp[i + 1][j + 1], dp[i][j] + abs(tim[i] - j));
                 }
-                forward += 1;
-                backward -= 1;
+                dp[i][j + 1] = min(dp[i][j + 1], dp[i][j]);
             }
         }
     }
-    cout << ans << "\n";
+    cout << dp[n][2 * n - 1] << endl;
 }
 
 

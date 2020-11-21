@@ -112,4 +112,51 @@ public:
     }
 };
 
+/**
+ * Returns the gcd of the two parameters
+ */
+
+ll gcd(ll a, ll b)
+{
+    if (a == 0)
+        return b;
+    return gcd(b % a, a);
+}
+
+/**
+ * Return x^y % p
+ * @param x
+ * @param y is MOD - 2 if we want inverse
+ * @param p MOD
+ * @return
+ */
+
+ll power(ll x, ll y = MOD - 2, ll p = MOD) {
+    ll res = 1;
+    x = x % p;
+    if (x == 0) return 0;
+    while (y > 0) {
+        if (y & 1)
+            res = (res * x) % p;
+        y = y >> 1;
+        x = (x * x) % p;
+    }
+    return res;
+}
+
+/**
+ * returns the modular sum of x and y
+ */
+
+ll modSum(ll x, ll y, ll p = MOD) {
+    return ((x % MOD) + (y % MOD)) % MOD;
+}
+
+/**
+ * returns the modular product of x and y
+ */
+
+ll modMultiply(ll x, ll y, ll p = MOD) {
+    return ((x % MOD) * (y % MOD)) % MOD;
+}
 

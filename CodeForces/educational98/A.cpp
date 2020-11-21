@@ -1,6 +1,6 @@
 /*
  * Developed By : Shivam Bairoliya
- * Created on   : 10/28/2020 at 4:03 PM(UTC +5.5)
+ * Created on   : 11/19/2020 at 8:03 PM(UTC +5.5)
  */
 
 //#define ONLINE_JUDGE
@@ -24,38 +24,15 @@ typedef long long ll;
 /************************************* SOLUTION BELOW ***************************************/
 
 void solve() {
-    ll n, m, k;
-    cin >> n >> m >> k;
-    ll array[n + 1][m + 1];
-    for (ll i = 1; i <= n; ++i) {
-        for (ll j = 1; j <= m; ++j) {
-            cin >> array[i][j];
-        }
+    ll x, y;
+    cin >> x >> y;
+    ll count = min(x, y);
+    ll left = (x + y) - 2 * count;
+    count *= 2;
+    if (left != 0) {
+        count += (2 * left - 1);
     }
-    ll dp[n + 1][m + 1][k][m / 2 + 1];
-    for (ll i = 0; i <= n; ++i) {
-        for (ll j = 0; j <= m; ++j) {
-            for (ll l = 0; l <= k; ++l) {
-                for (ll i1 = 0; i1 < (m / 2 + 1); ++i1) {
-                    dp[i][j][l][i1] = -1;
-                }
-            }
-        }
-    }
-    dp[0][0][0][0] = 0;
-    for (ll i = 0; i < n; ++i) {
-        for (ll j = 0; j < m; ++j) {
-            for (ll l = 0; l < k; ++l) {
-                for (ll i1 = 0; i1 < (m / 2 + 1); ++i1) {
-                    if (i == 0) {
-                        dp[i][j][l][i1] = 0;
-                        continue;
-                    }
-
-                }
-            }
-        }
-    }
+    cout << count << endl;
 }
 
 int32_t main() {

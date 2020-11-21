@@ -1,9 +1,8 @@
 /*
  * Developed By : Shivam Bairoliya
- * Created on   : 10/28/2020 at 4:03 PM(UTC +5.5)
+ * Created on   : 10/20/2020 at 8:37 PM(UTC +5.5)
  */
 
-//#define ONLINE_JUDGE
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -24,38 +23,17 @@ typedef long long ll;
 /************************************* SOLUTION BELOW ***************************************/
 
 void solve() {
-    ll n, m, k;
-    cin >> n >> m >> k;
-    ll array[n + 1][m + 1];
-    for (ll i = 1; i <= n; ++i) {
-        for (ll j = 1; j <= m; ++j) {
-            cin >> array[i][j];
-        }
+    ll n;
+    cin >> n;
+    vl factorial(21, 1);
+    for (ll i = 1; i <= 20; ++i) {
+        factorial[i] = factorial[i - 1] * i;
     }
-    ll dp[n + 1][m + 1][k][m / 2 + 1];
-    for (ll i = 0; i <= n; ++i) {
-        for (ll j = 0; j <= m; ++j) {
-            for (ll l = 0; l <= k; ++l) {
-                for (ll i1 = 0; i1 < (m / 2 + 1); ++i1) {
-                    dp[i][j][l][i1] = -1;
-                }
-            }
-        }
-    }
-    dp[0][0][0][0] = 0;
-    for (ll i = 0; i < n; ++i) {
-        for (ll j = 0; j < m; ++j) {
-            for (ll l = 0; l < k; ++l) {
-                for (ll i1 = 0; i1 < (m / 2 + 1); ++i1) {
-                    if (i == 0) {
-                        dp[i][j][l][i1] = 0;
-                        continue;
-                    }
 
-                }
-            }
-        }
-    }
+    ll combinations = factorial[n] / (factorial[n / 2] * factorial[n / 2]);
+    combinations *= factorial[n / 2 - 1];
+    combinations *= factorial[n / 2 - 1];
+    cout << combinations / 2 << endl;
 }
 
 int32_t main() {
@@ -67,7 +45,7 @@ int32_t main() {
     auto start = high_resolution_clock::now();
 #endif
     int t = 1;
-    cin >> t;
+    //cin >> t;
     while (t--) {
         solve();
     }
