@@ -113,7 +113,7 @@ public:
 };
 
 /**
- * Returns the gcd of the two parameters
+ * Returns the gcd of the two parameters recursively
  */
 
 ll gcd(ll a, ll b)
@@ -124,7 +124,7 @@ ll gcd(ll a, ll b)
 }
 
 /**
- * Return x^y % p
+ * Return x^y % p in logarithmic time
  * @param x
  * @param y is MOD - 2 if we want inverse
  * @param p MOD
