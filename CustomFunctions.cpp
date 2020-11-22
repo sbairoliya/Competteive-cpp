@@ -160,3 +160,13 @@ ll modMultiply(ll x, ll y, ll p = MOD) {
     return ((x % MOD) * (y % MOD)) % MOD;
 }
 
+/**
+ * Prints two values based on the boolean variable
+ * @param check the bool variable
+ * @param y - value printed when true default value "Yes"
+ * @param z - value printed when false default value "NO"
+ */
+
+void printYesNo(bool check, string y = "Yes", string z = "No") {
+    cout << (check ? y : z) << endl;
+}
